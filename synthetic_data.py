@@ -3,7 +3,13 @@ from numpy import random
 from numpy import zeros
 
 # CREATE DATA FUNCTION
-def state_space_model(dx, px, T, dy, py, var_x, var_y, var_c, var_h, f, g):
+def state_space_model(dim, p, noise, fns):
+
+    # Unpack
+    dx, dy, T = dim
+    px, py = p
+    var_x, var_y, var_c, var_h = noise
+    f,g = fns
 
     # dx - system dimension
     # px - sparsity in coefficient matrix
