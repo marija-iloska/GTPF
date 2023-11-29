@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10594835-b25a-4767-8284-496d4d10011e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/main_script.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posterior_compute.py" beforeDir="false" afterPath="$PROJECT_DIR$/posterior_compute.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/synthetic_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/synthetic_data.py" afterDir="false" />
-    </list>
+    <list default="true" id="10594835-b25a-4767-8284-496d4d10011e" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -93,7 +89,7 @@
       <workItem from="1700151951171" duration="7109000" />
       <workItem from="1700175682854" duration="87000" />
       <workItem from="1700239844950" duration="790000" />
-      <workItem from="1701278450537" duration="11331000" />
+      <workItem from="1701278450537" duration="11592000" />
     </task>
     <servers />
   </component>
