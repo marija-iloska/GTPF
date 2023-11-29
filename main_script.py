@@ -2,21 +2,23 @@ import numpy as np
 import random as rnd
 from synthetic_data import state_space_model
 from posterior_compute import beta_posterior
+import matplotlib.pyplot as plt
 
-dx = 7
-dy = 3
-T = 40
+dx = 10
+dy = 6
+T = 70
 px = 3
 py = 1
 var_x = 0.1
 var_y = 0.1
 var_c = 1
 var_h = 1
+var = 0.1
 f = lambda x: 1/(1 + np.exp(-x))
 g = lambda x: x
 
 fns = [f, g]
-noise = [var_x, var_y, var_c, var_h]
+noise = [var_x, var_y, var_c, var_h, var]
 p = [px, py]
 dim = [dx, dy, T]
 
@@ -30,7 +32,7 @@ M = 100
 # Beta selection
 B = np.linspace(0.01, 1, 100)
 b_size = len(B)
-beta_post = np.ones((1, b_size))/b_size
+beta_post = np.ones((1, b_size))[0]/b_size
 
 # Chosen beta
 chosen_beta = [0.2]
@@ -47,10 +49,13 @@ x_old = x_particles
 x_est = np.zeros((dx,T))
 covX = var_x*np.eye(dx)
 covY = var_y*np.eye(dy)
-m_star = []
+
+
+
 
 for t in range(1,T):
 
+    m_star = []
     # FIRST STAGE
     for m in range(M):
         tr_mean[:,m] = C @ f(x_old[:,m])
@@ -64,6 +69,8 @@ for t in range(1,T):
 
     # Modify proposal
     for i in range(dx):
+
+        ln_p = []
 
         # If all data points have been used
         if states_y.size == 0:
@@ -80,14 +87,15 @@ for t in range(1,T):
             x_predicted[i] = x_particles[i,m]
 
             # Compute loglikelihood
-            ln_p.append( -(0.5/var_y)*( (y[l,t] - H[l,:] @ g(x_predicted)) )**2 )
+            ln_p.append( float(-(0.5/var_y)*( (y[l,t] - H[l,:] @ g(x_predicted)) )**2 ))
 
         # Find max
-        if len(ln_p.index(ln_p == max(ln_p))) != 1:
+        if float(min(ln_p)== max(ln_p)):
             # Sample at random if all weights same (Avoid numerical issues)
-            m_star.append(rnd.sample(list(range(M)), 1))
+            m_star.append(rnd.sample(list(range(M)), 1)[0] )
         else:
-            m_star.append(ln_p.index(ln_p == max(ln_p)))
+            ln_p_array = np.array(ln_p)
+            m_star.append(int( np.where( ln_p_array == max(ln_p_array) )[0][0]) )
 
         # Form proposed mean from particles with ML
         x_predicted[i] = x_particles[i, m_star[i]]
@@ -105,7 +113,7 @@ for t in range(1,T):
         chosen_beta.append(beta)
 
         #Resample and set weights to be equal
-        idx = np.random.choice(list(range(M)), M, w)
+        idx = np.random.choice(list(range(M)), M, p=w)
         w = np.ones(M)/M
 
         #Set new particles
@@ -116,3 +124,9 @@ for t in range(1,T):
         x_est[:, t] = np.mean(x_particles, axis=1)
 
 # GTPF call
+
+
+j = int(np.random.choice(list(range(dx)), 1))
+plt.plot(np.arange(T),x_est[j,:])
+plt.plot(np.arange(T), x[j,:])
+plt.show()

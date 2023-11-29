@@ -8,7 +8,7 @@ def state_space_model(dim, p, noise, fns):
     # Unpack
     dx, dy, T = dim
     px, py = p
-    var_x, var_y, var_c, var_h = noise
+    var_x, var_y, var_c, var_h,_ = noise
     f,g = fns
 
     # dx - system dimension
