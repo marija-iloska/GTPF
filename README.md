@@ -1,5 +1,5 @@
 # Generalized Two-Stage Particle Filter for High Dimensions
-# ICASSP 2024
+# ICASSP 2023
 
 ### Particle filters (PF)
 PFs are online algorithms that estimate a hidden process from noisy data. 
