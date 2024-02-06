@@ -12,7 +12,7 @@ be applied to systems with observation model that has separable equations, and a
 
 ## Generalized Two-Stage PF
 We propose a generalized two-stage particle filter (GTPF) that can be applied to all models, and computes the distribution of
-the tempering coefficient. 
+the tempering coefficient. For thorough details, please refer to the following link.
 
 ### Reference paper: http://tinyurl.com/ieeexplore-iloska-gtpf
 (Reference for original two-stage PF can be found with-in).
