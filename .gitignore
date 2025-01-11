@@ -1,3 +1,44 @@
-/__pycache__/
-.idea/
-venv/
+# Python related files
+
+Python//__pycache__/
+Python/.idea/
+Python/venv/
+
+# MATLAB related files
+# Windows default autosave extension
+MATLAB/*.asv
+
+# OSX / *nix default autosave extension
+MATLAB/*.m~
+
+# Compiled MEX binaries (all platforms)
+MATLAB/*.mex*
+
+# Packaged app and toolbox files
+MATLAB/*.mlappinstall
+MATLAB/*.mltbx
+
+# Generated helpsearch folders
+MATLAB/helpsearch*/
+
+# Simulink code generation folders
+MATLAB/slprj/
+MATLAB/sccprj/
+
+# Matlab code generation folders
+MATLAB/codegen/
+
+# Simulink autosave extension
+MATLAB/*.autosave
+
+# Simulink cache files
+MATLAB/*.slxc
+
+# Octave session info
+MATLAB/octave-workspace
+
+# Slurm scripts
+MATLAB/.txt
+
+# Folders
+MATLAB/.DS_Store
