@@ -17,7 +17,7 @@ the tempering coefficient. For thorough details, please refer to the following l
 ### Reference paper: http://tinyurl.com/ieeexplore-iloska-gtpf
 (Reference for original two-stage PF can be found with-in).
 
-### Code
+### Python Code
 1. main_script.py  - script to run the proposed filter
    - generates synthetic data according to user settings
    - calls and runs filter
@@ -26,3 +26,13 @@ the tempering coefficient. For thorough details, please refer to the following l
 2. synthetic_data.py - module that can generate state-space model or linear model data
 3. gtpf.py - module that stores the code of the proposed filter
 4. posterior_compute.py - module that computes the posterior of the tempering parameter beta
+
+### MATLAB Code
+1. main.m  - script to run the proposed filter
+   - generates synthetic data according to user settings
+   - calls and runs filter
+   - plots the estimation of a random state trajectory
+  
+2. util/create_data.m - module that can generate state-space model or linear model data
+3. proposed_method/gtpf.m - function of the code of the proposed filter
+4. proposed_method/beta_posterior.m - module that computes the posterior of the tempering parameter beta
